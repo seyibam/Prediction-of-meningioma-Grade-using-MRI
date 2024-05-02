@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the dataset
-data = pd.read_csv('C:/Users/USER/Desktop/Seyi UK/Assign 516/Dataset-_01.csv')
+data = pd.read_csv('C:/Users/USER/Desktop/Dataset/Assign 516/Dataset-_01.csv')
 
 # Plotting the distribution of 'Grade'
 plt.figure(figsize=(8, 6))
@@ -17,7 +17,7 @@ plt.show()
 import pandas as pd
 
 # Load the dataset
-data = pd.read_csv('C:/Users/USER/Desktop/Seyi UK/Assign 516/Dataset-_01.csv')
+data = pd.read_csv('C:/Users/USER/Desktop/Dataset/Assign 516/Dataset-_01.csv')
 
 # Convert 'Grade' to a numerical format
 if data['Grade'].dtype == 'object':
@@ -59,7 +59,7 @@ plt.show()
 import pandas as pd
 
 # Load the dataset
-data = pd.read_csv('C:/Users/USER/Desktop/Seyi UK/Assign 516/Dataset-_01.csv')
+data = pd.read_csv('C:/Users/USER/Desktop/Dataset/Assign 516/Dataset-_01.csv')
 
 # Convert 'Grade' to a numerical format if it's categorical
 if data['Grade'].dtype == 'object':
@@ -90,7 +90,7 @@ from sklearn.linear_model import LassoCV
 from sklearn.model_selection import train_test_split
 
 # Load the dataset
-data = pd.read_csv('C:/Users/USER/Desktop/Seyi UK/Assign 516/standardized_dataset.csv')
+data = pd.read_csv('C:/Users/USER/Desktop/Dataset/Assign 516/standardized_dataset.csv')
 
 # Separate features and target
 X = data.iloc[:, 2:]  # Features
@@ -123,19 +123,19 @@ X_test_lasso = X_test_scaled[selected_features_lasso]
 # Filter method
 X_train_filter = X_train_scaled[selected_features_filter]
 X_train_filter['Grade'] = y_train.reset_index(drop=True)
-X_train_filter.to_csv('C:/Users/USER/Desktop/Seyi UK/Assign 516/X_train_filter_selected.csv', index=False)
+X_train_filter.to_csv('C:/Users/USER/Desktop/Dataset/Assign 516/X_train_filter_selected.csv', index=False)
 
 X_test_filter = X_test_scaled[selected_features_filter]
 X_test_filter['Grade'] = y_test.reset_index(drop=True)
-X_test_filter.to_csv('C:/Users/USER/Desktop/Seyi UK/Assign 516/X_test_filter_selected.csv', index=False)
+X_test_filter.to_csv('C:/Users/USER/Desktop/Dataset/Assign 516/X_test_filter_selected.csv', index=False)
 
 # LASSO method
 X_train_lasso = X_train_scaled[selected_features_lasso]
 X_train_lasso['Grade'] = y_train.reset_index(drop=True)
-X_train_lasso.to_csv('C:/Users/USER/Desktop/Seyi UK/Assign 516/X_train_lasso_selected.csv', index=False)
+X_train_lasso.to_csv('C:/Users/USER/Desktop/Dataset/Assign 516/X_train_lasso_selected.csv', index=False)
 
 X_test_lasso['Grade'] = y_test.reset_index(drop=True)
-X_test_lasso.to_csv('C:/Users/USER/Desktop/Seyi UK/Assign 516/X_test_lasso_selected.csv', index=False)
+X_test_lasso.to_csv('C:/Users/USER/Desktop/Dataset/Assign 516/X_test_lasso_selected.csv', index=False)
 
 print("Training and test data with selected features saved successfully.")
 
@@ -180,8 +180,8 @@ param_grid = {
 }
 
 # Paths to the datasets
-filter_file_path = 'C:/Users/USER/Desktop/Seyi UK/Assign 516/X_train_filter_selected.csv'
-lasso_file_path = 'C:/Users/USER/Desktop/Seyi UK/Assign 516/X_train_lasso_selected.csv'
+filter_file_path = 'C:/Users/USER/Desktop/Dataset/Assign 516/X_train_filter_selected.csv'
+lasso_file_path = 'C:/Users/USER/Desktop/Dataset/Assign 516/X_train_lasso_selected.csv'
 
 # Prepare data for filter-selected and LASSO-selected features
 X_train_filter, X_test_filter, y_train_filter, y_test_filter = prepare_data(filter_file_path)
@@ -236,14 +236,14 @@ print(svc_report_lasso)
 import joblib
 
 # Saving models trained on filter-selected features
-joblib.dump(logreg_model_filter, 'C:/Users/USER/Desktop/Seyi UK/Assign 516/logreg_model_filter.pkl')
-joblib.dump(rf_model_filter, 'C:/Users/USER/Desktop/Seyi UK/Assign 516/rf_model_filter.pkl')
-joblib.dump(svc_model_filter, 'C:/Users/USER/Desktop/Seyi UK/Assign 516/svc_model_filter.pkl')
+joblib.dump(logreg_model_filter, 'C:/Users/USER/Desktop/Dataset/Assign 516/logreg_model_filter.pkl')
+joblib.dump(rf_model_filter, 'C:/Users/USER/Desktop/Dataset/Assign 516/rf_model_filter.pkl')
+joblib.dump(svc_model_filter, 'C:/Users/USER/Desktop/Dataset/Assign 516/svc_model_filter.pkl')
 
 # Saving models trained on LASSO-selected features
-joblib.dump(logreg_model_lasso, 'C:/Users/USER/Desktop/Seyi UK/Assign 516/logreg_model_lasso.pkl')
-joblib.dump(rf_model_lasso, 'C:/Users/USER/Desktop/Seyi UK/Assign 516/rf_model_lasso.pkl')
-joblib.dump(svc_model_lasso, 'C:/Users/USER/Desktop/Seyi UK/Assign 516/svc_model_lasso.pkl')
+joblib.dump(logreg_model_lasso, 'C:/Users/USER/Desktop/Dataset/Assign 516/logreg_model_lasso.pkl')
+joblib.dump(rf_model_lasso, 'C:/Users/USER/Desktop/Dataset/Assign 516/rf_model_lasso.pkl')
+joblib.dump(svc_model_lasso, 'C:/Users/USER/Desktop/Dataset/Assign 516/svc_model_lasso.pkl')
 
 print("All models have been saved successfully.")
 
@@ -281,17 +281,17 @@ def evaluate_model(y_test, y_pred, model, X_test):
     return metrics
 
 # Load models for both filter-selected and LASSO-selected features
-logreg_model_filter = joblib.load('C:/Users/USER/Desktop/Seyi UK/Assign 516/logreg_model_filter.pkl')
-rf_model_filter = joblib.load('C:/Users/USER/Desktop/Seyi UK/Assign 516/rf_model_filter.pkl')
-svc_model_filter = joblib.load('C:/Users/USER/Desktop/Seyi UK/Assign 516/svc_model_filter.pkl')
+logreg_model_filter = joblib.load('C:/Users/USER/Desktop/Dataset/Assign 516/logreg_model_filter.pkl')
+rf_model_filter = joblib.load('C:/Users/USER/Desktop/Dataset/Assign 516/rf_model_filter.pkl')
+svc_model_filter = joblib.load('C:/Users/USER/Desktop/Dataset/Assign 516/svc_model_filter.pkl')
 
-logreg_model_lasso = joblib.load('C:/Users/USER/Desktop/Seyi UK/Assign 516/logreg_model_lasso.pkl')
-rf_model_lasso = joblib.load('C:/Users/USER/Desktop/Seyi UK/Assign 516/rf_model_lasso.pkl')
-svc_model_lasso = joblib.load('C:/Users/USER/Desktop/Seyi UK/Assign 516/svc_model_lasso.pkl')
+logreg_model_lasso = joblib.load('C:/Users/USER/Desktop/Dataset/Assign 516/logreg_model_lasso.pkl')
+rf_model_lasso = joblib.load('C:/Users/USER/Desktop/Dataset/Assign 516/rf_model_lasso.pkl')
+svc_model_lasso = joblib.load('C:/Users/USER/Desktop/Dataset/Assign 516/svc_model_lasso.pkl')
 
 # Paths to the test datasets
-test_filter_path = 'C:/Users/USER/Desktop/Seyi UK/Assign 516/X_test_filter_selected.csv'
-test_lasso_path = 'C:/Users/USER/Desktop/Seyi UK/Assign 516/X_test_lasso_selected.csv'
+test_filter_path = 'C:/Users/USER/Desktop/Dataset/Assign 516/X_test_filter_selected.csv'
+test_lasso_path = 'C:/Users/USER/Desktop/Dataset/Assign 516/X_test_lasso_selected.csv'
 
 # Load test data
 X_test_filter, y_test_filter = load_data(test_filter_path)
@@ -348,8 +348,8 @@ def evaluate_model(model, X_test, y_test):
     return accuracy, report
 
 # Path to the datasets
-filter_dataset_path = 'C:/Users/USER/Desktop/Seyi UK/Assign 516/X_train_filter_selected.csv'
-lasso_dataset_path = 'C:/Users/USER/Desktop/Seyi UK/Assign 516/X_train_lasso_selected.csv'
+filter_dataset_path = 'C:/Users/USER/Desktop/Dataset/Assign 516/X_train_filter_selected.csv'
+lasso_dataset_path = 'C:/Users/USER/Desktop/Dataset/Assign 516/X_train_lasso_selected.csv'
 
 # Parameter grid for hyperparameter tuning
 param_grid = {
